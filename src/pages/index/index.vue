@@ -1,25 +1,37 @@
+<!--
+ * @Author: lw
+ * @Date: 2023-01-13 11:22:39
+ * @LastEditTime: 2023-01-30 11:42:19
+ * @LastEditors: lw
+ * @Description: 
+ * @FilePath: \travelMiniApp\src\pages\index\index.vue
+-->
 <template>
   <view class="index">
     <view>
       <img src="" alt="">
     </view>
-    {{ msg }} <Dongdong />
+    {{ msg }}
+    <Dongdong />
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
     </view>
-    <nut-toast :msg="msg2" v-model:visible="show" :type="type" :cover="cover"/>
+    <nut-toast :msg="msg2" v-model:visible="show" :type="type" :cover="cover" />
   </view>
+  <TabBar />
 </template>
 
 <script>
 import { reactive, toRefs } from 'vue';
 import { Dongdong } from '@nutui/icons-vue-taro';
+import { TabBar } from "@/components/index"
 export default {
   name: 'Index',
   components: {
-    Dongdong
+    Dongdong,
+    TabBar
   },
-  setup() {
+  setup () {
     const state = reactive({
       msg: '欢迎使用 NutUI4.0 开发小程序',
       msg2: '你成功了～',
