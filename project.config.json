@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "travelMiniApp",
   "description": "差旅小程序",
-  "appid": "touristappid",
+  "appid": "wx5fcc494e6eec7511",
   "setting": {
     "urlCheck": true,
     "es6": false,

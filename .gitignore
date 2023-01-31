@@ -1,4 +1,5 @@
 dist/
+distDev/
 deploy_versions/
 .temp/
 .rn_temp/

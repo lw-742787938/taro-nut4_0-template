@@ -7,3 +7,4 @@
  * @FilePath: \travelMiniApp\src\components\index.js
  */
 export { default as TabBar } from "./tabBar/index.vue"
+export { default as NavBar } from "./navBar/index.vue"

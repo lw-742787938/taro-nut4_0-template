@@ -30,7 +30,21 @@ const config = {
   },
   sourceRoot: "src",
   outputRoot: "dist",
-  plugins: ["@tarojs/plugin-html", "tarojs-router-next-plugin"],
+  plugins: [
+    "@tarojs/plugin-html",
+    [
+      "tarojs-router-next-plugin",
+      {
+        packages: [
+          {
+            name: "approval",
+            pagePath: path.resolve(__dirname, "../src/approval/pages/"),
+          },
+          { name: "me", pagePath: path.resolve(__dirname, "../src/me/pages/") },
+        ],
+      },
+    ],
+  ],
   defineConstants: {},
   copy: {
     patterns: [],
@@ -52,7 +66,7 @@ const config = {
   },
   sass: {
     resource: [
-      path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
+      path.resolve(__dirname, "..", "src/assets/styles/custom_theme.scss"),
     ],
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
   },

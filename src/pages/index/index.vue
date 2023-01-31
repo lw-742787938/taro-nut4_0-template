@@ -1,58 +1,35 @@
 <!--
  * @Author: lw
  * @Date: 2023-01-13 11:22:39
- * @LastEditTime: 2023-01-30 11:42:19
+ * @LastEditTime: 2023-01-31 11:57:41
  * @LastEditors: lw
  * @Description: 
  * @FilePath: \travelMiniApp\src\pages\index\index.vue
 -->
 <template>
-  <view class="index">
-    <view>
-      <img src="" alt="">
-    </view>
-    {{ msg }}
-    <Dongdong />
-    <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
-    </view>
-    <nut-toast :msg="msg2" v-model:visible="show" :type="type" :cover="cover" />
-  </view>
+  <NavBar>
+    <div>test</div>
+  </NavBar>
+  <div class="test">1
+    <div> {{ mainStore.testHeight }}</div>
+  </div>
   <TabBar />
 </template>
 
-<script>
-import { reactive, toRefs } from 'vue';
-import { Dongdong } from '@nutui/icons-vue-taro';
-import { TabBar } from "@/components/index"
-export default {
-  name: 'Index',
-  components: {
-    Dongdong,
-    TabBar
-  },
-  setup () {
-    const state = reactive({
-      msg: '欢迎使用 NutUI4.0 开发小程序',
-      msg2: '你成功了～',
-      type: 'text',
-      show: false,
-      cover: false
-    });
+<script setup>
+import { useLoad, useReady, nextTick } from '@tarojs/taro'
+import { reactive, toRefs, ref } from 'vue';
+import { TabBar, NavBar } from "@/components/index.js"
+import { useMainStore } from "@/store/index";
+const mainStore = useMainStore();
+mainStore.getSystemInfo();
 
-    const handleClick = (type, msg, cover = false) => {
-      state.show = true;
-      state.msg2 = msg;
-      state.type = type;
-      state.cover = cover;
-    };
+useLoad(() => {
 
-    return {
-      ...toRefs(state),
-      handleClick
-    }
-  }
-}
+})
+useReady(() => {
+
+})
 </script>
 
 <style lang="scss">
@@ -61,5 +38,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.test {
+  background-color: red
 }
 </style>
